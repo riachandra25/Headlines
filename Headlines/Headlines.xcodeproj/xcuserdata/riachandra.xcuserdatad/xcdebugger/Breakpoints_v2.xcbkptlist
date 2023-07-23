@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "2C5D96C0-1A96-4E4F-904F-2626E8D416F9"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A7BE4E2-D661-476F-9854-D710FD03B01A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/NetworkManager/APIHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "fetchJSONData(with:method:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/NetworkManager/APIHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "fetchJSONData(with:method:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - f42effaac86b56b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Downloads/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "686">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - 3e98376fdb16859d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;&#x3c4;_0_0, Alamofire.AFError&gt;) -&gt; () in Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Downloads/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - f42effaac86b56b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Downloads/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - 11c27afb5fe589ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Test/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - db74b23e4c985a83"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;&#x3c4;_0_0, Alamofire.AFError&gt;) -&gt; () in Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Test/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - 3f311da63c591edd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - f587d5632f24cdb6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;&#x3c4;_0_0, Alamofire.AFError&gt;) -&gt; () in Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - 3f311da63c591ebc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - f587d5632f24cd91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;&#x3c4;_0_0, Alamofire.AFError&gt;) -&gt; () in Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - 3f311da63c591f87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  uuid = "96AA0F08-3657-42CB-9D37-AA21343BB799 - f587d5632f24cce8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;&#x3c4;_0_0, Alamofire.AFError&gt;) -&gt; () in Headlines.APIHandler.fetchJSONData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Foundation.URL, method: Alamofire.HTTPMethod, completion: (Headlines.RequestResult&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/NetworkManager/APIHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "320">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CFDB14A6-097C-4751-A90D-9EA494B43545"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/ArticleView/ArticlePagViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "pageViewController(_:viewControllerBefore:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ECD35132-CAAD-40AD-B195-5288B990E066"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/ArticlePageView/ArticlePageViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "getArticlesList(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ECD35132-CAAD-40AD-B195-5288B990E066 - be4515b77f1212e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; () in Headlines.ArticlePageViewModel.getArticlesList(with: (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Downloads/ios-codetest-master/Headlines/ArticlePageView/ArticlePageViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "862">
+               </Location>
+               <Location
+                  uuid = "ECD35132-CAAD-40AD-B195-5288B990E066 - be4515b77f121120"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; () in Headlines.ArticlePageViewModel.getArticlesList(with: (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Downloads/ios-codetest-master/Headlines/ArticlePageView/ArticlePageViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "973">
+               </Location>
+               <Location
+                  uuid = "ECD35132-CAAD-40AD-B195-5288B990E066 - 9a5012f100c782b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; () in Headlines.ArticlePageViewModel.getArticlesList(with: (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Test/ios-codetest-master/Headlines/ArticlePageView/ArticlePageViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "862">
+               </Location>
+               <Location
+                  uuid = "ECD35132-CAAD-40AD-B195-5288B990E066 - 9195ab95682f7a98"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; () in Headlines.ArticlePageViewModel.getArticlesList(with: (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/ArticlePageView/ArticlePageViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "862">
+               </Location>
+               <Location
+                  uuid = "ECD35132-CAAD-40AD-B195-5288B990E066 - 9195ab95682f79d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; () in Headlines.ArticlePageViewModel.getArticlesList(with: (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/ArticlePageView/ArticlePageViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "862">
+               </Location>
+               <Location
+                  uuid = "ECD35132-CAAD-40AD-B195-5288B990E066 - 9195ab95682f7814"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; () in Headlines.ArticlePageViewModel.getArticlesList(with: (Headlines.RequestResult&lt;Swift.Array&lt;Headlines.Article&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/ArticlePageView/ArticlePageViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "862">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1F00F82-DE0B-46AA-B19F-5529F8FC20EC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/ArticlePageView/ArticlePageViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "canMoveForward()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "900D8A0D-E2F3-4E5F-BF3D-E9ECC5228C10"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HeadlinesTests/HeadlinesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE2C8B03-0378-4E2A-8BA9-8625B618B8B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EE2C8B03-0378-4E2A-8BA9-8625B618B8B6 - d93dfb9f97eba1d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Test/ios-codetest-master/Headlines/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "EE2C8B03-0378-4E2A-8BA9-8625B618B8B6 - d93dfb9f97eba1f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Test/ios-codetest-master/Headlines/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "EE2C8B03-0378-4E2A-8BA9-8625B618B8B6 - 1a417866afc251b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3467D333-2D8B-4BE5-B509-071FAE393615"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../MockDataStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "updateFavoriteStatus(for:status:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3467D333-2D8B-4BE5-B509-071FAE393615 - 403eb53b32de51c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeadlinesTests.MockDataStore.updateFavoriteStatus(for: Swift.Int, status: Swift.Bool) -&gt; ()"
+                  moduleName = "HeadlinesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/MockDataStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  uuid = "3467D333-2D8B-4BE5-B509-071FAE393615 - 403eb53b32de51c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeadlinesTests.MockDataStore.updateFavoriteStatus(for: Swift.Int, status: Swift.Bool) -&gt; ()"
+                  moduleName = "HeadlinesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/MockDataStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  uuid = "3467D333-2D8B-4BE5-B509-071FAE393615 - 403eb53b32de51c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeadlinesTests.MockDataStore.updateFavoriteStatus(for: Swift.Int, status: Swift.Bool) -&gt; ()"
+                  moduleName = "HeadlinesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/MockDataStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "105">
+               </Location>
+               <Location
+                  uuid = "3467D333-2D8B-4BE5-B509-071FAE393615 - 403eb53b32de51c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeadlinesTests.MockDataStore.updateFavoriteStatus(for: Swift.Int, status: Swift.Bool) -&gt; ()"
+                  moduleName = "HeadlinesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/MockDataStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EEEBBF8-6D8A-4C60-B1B3-2D094096772D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../.Trash/ios-codetest-master/Headlines/NetworkManager/APIConfig/ArticleViewModelTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "test_toggle_status_favorite_article()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8EEEBBF8-6D8A-4C60-B1B3-2D094096772D - 5000535f7db8c2e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeadlinesTests.ArticleViewModelTests.test_toggle_status_favorite_article() -&gt; ()"
+                  moduleName = "HeadlinesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/.Trash/ios-codetest-master/Headlines/NetworkManager/APIConfig/ArticleViewModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "326">
+               </Location>
+               <Location
+                  uuid = "8EEEBBF8-6D8A-4C60-B1B3-2D094096772D - 5000535f7db8c2e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeadlinesTests.ArticleViewModelTests.test_toggle_status_favorite_article() -&gt; ()"
+                  moduleName = "HeadlinesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/.Trash/ios-codetest-master/Headlines/NetworkManager/APIConfig/ArticleViewModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "335">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C6354B18-B405-4DA9-8E08-A0B7BFE196B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/FavoritesView/FavoritesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "filterArticleList(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C6354B18-B405-4DA9-8E08-A0B7BFE196B5 - d9a9e7e0d0b96e3d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.FavoritesViewModel.filterArticleList(with: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Headlines.Article&gt;&gt;"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/FavoritesView/FavoritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "C6354B18-B405-4DA9-8E08-A0B7BFE196B5 - 1a92850040ea470f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Headlines.Article) -&gt; Swift.Bool in Headlines.FavoritesViewModel.filterArticleList(with: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Headlines.Article&gt;&gt;"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/FavoritesView/FavoritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "C6354B18-B405-4DA9-8E08-A0B7BFE196B5 - d9a9e7e0d0b96e3d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.FavoritesViewModel.filterArticleList(with: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Headlines.Article&gt;&gt;"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/FavoritesView/FavoritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "79">
+               </Location>
+               <Location
+                  uuid = "C6354B18-B405-4DA9-8E08-A0B7BFE196B5 - d9a9e7e0d0b969d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Headlines.FavoritesViewModel.filterArticleList(with: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Headlines.Article&gt;&gt;"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/FavoritesView/FavoritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "79">
+               </Location>
+               <Location
+                  uuid = "C6354B18-B405-4DA9-8E08-A0B7BFE196B5 - 1a92850040ea40a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Headlines.Article) -&gt; Swift.Bool in Headlines.FavoritesViewModel.filterArticleList(with: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Headlines.Article&gt;&gt;"
+                  moduleName = "Headlines"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/riachandra/Documents/Final%20Codebase/ios-codetest-master/Headlines/FavoritesView/FavoritesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08A8AAD7-CB95-4DC8-925F-563EBA9F40EA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/FavoritesView/FavoritesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "totalFavoriteCount"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D01E4D4A-A902-4BE1-BD98-D5503530EAE6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/FavoritesView/FavoritesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "articles"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A613997E-88B4-407E-BFF1-B86F20B5C79B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Headlines/NetworkManager/APIHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "fetchJSONData(with:method:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
