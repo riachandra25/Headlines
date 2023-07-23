@@ -1,7 +1,6 @@
 # Headlines
 
-
-- what were the priorities, and why?
+## What were the priorities, and why?
 
 
 Add the required functionality
@@ -21,15 +20,14 @@ Stored favorites in database to show on app relaunch
 Favorite button state with animation
 Search
 
-- if I had another two days, what would I have tackled next?
+## If I had another two days, what would I have tackled next?
 
 Improve the page swipe functionality  
-Add few more unit tests and UI tests
+Add few UI tests
 Add more specific error handling
-Separate the reusable functionality in the code
 Add loading/error/empty article or favorite screen where needed with retry mechanism
 
-- what would I change about the structure of the code?
+## What would I change about the structure of the code?
 
 
 Because the target is iOS 12, implemented the feature supported on iOS 12. Otherwise could have used SwiftUI and Async await
@@ -40,7 +38,7 @@ Handling of more specific error scenario
 Add accessibility and more tests 
 
 
-- what would I change about the visual design of the app?
+## What would I change about the visual design of the app?
 
 
 The favorite buttons are at the end of each page, may be that can be placed in a way it can always be visible
@@ -52,7 +50,7 @@ As we are already storing the data through realm, would be quite simple to add o
 Add error view with retry mechanism, empty state view
 Remove article from favorite table cell
 
-- Approximately how long I spent on this project.
+## Approximately how long I spent on this project.
 
 
 Overall approx 3 hours, but not at a stretch 
