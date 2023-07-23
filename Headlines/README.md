@@ -1,7 +1,5 @@
 
 - what were the priorities, and why?
-
-
 Add the required functionality
 Decouple the code following MVVM design pattern
 Make the codebase testable
