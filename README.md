@@ -34,7 +34,6 @@ Presently implemented functionality -
 2. As its a simple project, here it might not be necessary. But definitely the network layer and data store handler can be improved with more decoupled generic way
 3. More decoupled and exact mapping with data model and UI layer
 4. It would be great if we could parse an article id to uniquely identify each article
-5. Handling of more specific error scenario
 6. Add accessibility and more tests 
 
 
