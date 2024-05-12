@@ -23,9 +23,9 @@ Presently implemented functionality -
 
 ## If I had another two days, what would I have tackled next?
 
-1. Add few UI tests
-2. Add more specific error handling
-3. Add loading/error/empty article or favorite screen where needed with retry mechanism
+1. Add more specific error handling
+2. Add loading/error/empty article or favorite screen where needed with retry mechanism
+3. Make the UI more user friendly with more functionality
 
 
 ## Approximately how long I spent on this project.
