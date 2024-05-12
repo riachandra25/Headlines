@@ -13,13 +13,13 @@ final class ArticleManagerProtocolMock: ArticleManagerProtocol {
     init() {
     }
     private(set) var fetchArticlesCallCount = 0
-    var testResponse: RequestResult<[Article]>?
-    func fetchArticles(with completionHandler: @escaping (RequestResult<[Article]>)  -> ()) {
+    var articleHandler: (() async throws -> ([Article]))?
+
+    func fetchArticles() async throws -> [Article]?    {
         fetchArticlesCallCount += 1
-        if let response = testResponse {
-             completionHandler(response)
-             return
+        if let articleHandler = articleHandler {
+            return try await articleHandler()
         }
-        fatalError("fetchArticles completion handler returns can't have a default value thus its result must be set")
+        fatalError("fetchArticles returns can't have a default value thus its result must be set")
     }
 }

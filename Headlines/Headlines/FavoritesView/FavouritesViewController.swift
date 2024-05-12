@@ -9,8 +9,18 @@
 import UIKit
 
 final class FavouritesViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
-    let viewModel = FavoritesViewModel()
+    let viewModel: FavoritesViewModel
+    
+    init(viewModel: FavoritesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +46,7 @@ private extension FavouritesViewController {
     // reload table with favorite article list
     func reload() {
         tableView.reloadData()
-        let favouriteStr = viewModel.totalFavoriteCount > 1 ? "favourites" : "favourite"
+        let favouriteStr = viewModel.totalFavoriteCount > 1 ? NSLocalizedString("favourites", comment: "") : NSLocalizedString("favourite", comment: "")
         self.navigationItem.title = String(
             format: NSLocalizedString(
                 "%d %@", comment: ""

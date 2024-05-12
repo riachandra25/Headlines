@@ -7,6 +7,7 @@
 
 
 import XCTest
+import RealmSwift
 @testable import Headlines
 
 final class ArticlePageViewModelTests: XCTestCase {
@@ -14,23 +15,28 @@ final class ArticlePageViewModelTests: XCTestCase {
     private var mockArticleManager: ArticleManagerProtocolMock!
 
     override func setUpWithError() throws {
+        
         mockArticleManager = ArticleManagerProtocolMock()
         sut = ArticlePageViewModel(articleManager: mockArticleManager)
     }
+   
 
     override func tearDownWithError() throws {
         mockArticleManager = nil
         sut = nil
     }
     
-    func test_getArticleList_success_response() {
-        let articles = ArticleMock.articles()
-        mockArticleManager.testResponse = RequestResult.success(item: articles)
+    func test_getArticleList_success_response()  {
+        let articleData = ArticleMock.articles()
+        mockArticleManager.articleHandler = { articleData }
         let expectation = expectation(description: "Fetch the articles")
-        sut.getArticlesList { response in
-            switch response {
-            case .success(item: let articles):
-                XCTAssertEqual(articles.count, 2)
+        Task {
+            do {
+                
+                let articles = try await sut.getArticles()
+                
+                // Then
+                XCTAssertEqual(articles.count, 2) // Assuming the mock returns 2 articles
                 let article = articles.first
                 XCTAssertEqual(article?.webTitle, "Title")
                 XCTAssertEqual(article?.webPublicationDate, "02/02/2023")
@@ -38,66 +44,72 @@ final class ArticlePageViewModelTests: XCTestCase {
                 XCTAssertEqual(article?.fields?.main, "main")
                 XCTAssertEqual(article?.isFavorite, false)
                 expectation.fulfill()
-            default:
-              XCTFail()
+            } catch {
+                XCTFail("Error: \(error.localizedDescription)")
             }
         }
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 20)
     }
     
     func test_getArticleList_failure_response_with_configuration_error() {
-        mockArticleManager.testResponse = RequestResult.failure(error: .configurationError(details: "Configuration Error"))
+        mockArticleManager.articleHandler = { throw HeadlinesError.configurationError(details: "Configuration Error")
+        }
         let expectation = expectation(description: "Error handler for article response")
-        sut.getArticlesList { response in
-            switch response {
-            case .failure(error: let error):
+        Task {
+            do {
+                _ = try await sut.getArticles()
+                XCTFail("Expected an error but got success")
+            } catch(let error as HeadlinesError) {
                 XCTAssertNotNil(error)
-                XCTAssertEqual(error.errorDescription, "Configuration Error")
+                
+                XCTAssertEqual(error.localizedDescription, "Configuration Error")
                 expectation.fulfill()
-            default:
-              XCTFail()
+
             }
         }
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 20)
+
     }
     
     func test_getArticleList_failure_response_with_network_error() {
-        mockArticleManager.testResponse = RequestResult.failure(error: .networkError(details: "Server Error"))
+        mockArticleManager.articleHandler = { throw HeadlinesError.networkError(details: "Server Error")
+        }
         let expectation = expectation(description: "Error handler for article response")
-        sut.getArticlesList { response in
-            switch response {
-            case .failure(error: let error):
+        Task {
+            do {
+                _ = try await sut.getArticles()
+                XCTFail("Expected an error but got success")
+            } catch(let error as HeadlinesError) {
                 XCTAssertNotNil(error)
-                XCTAssertEqual(error.errorDescription, "Server Error")
+                XCTAssertEqual(error.localizedDescription, "Server Error")
                 expectation.fulfill()
-            default:
-              XCTFail()
             }
         }
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 20)
+
     }
-    
+
     func test_pages_can_move_forward_and_backward() {
-        mockArticleManager.testResponse = RequestResult.success(item: ArticleMock.articles())
+        let articleData = ArticleMock.articles()
+        mockArticleManager.articleHandler = { articleData }
         let expectation = expectation(description: "Fetch the articles")
-        sut.getArticlesList { response in
-            switch response {
-            case .success(item: let articles):
-                XCTAssertEqual(articles.count, 2)
+        Task {
+            do {
+                let _ = try await sut.getArticles()
+                sut.selectedIndex = 0
+                XCTAssertEqual(sut.canMoveForward(), true)
+                XCTAssertEqual(sut.selectedIndex, 1)
+                XCTAssertEqual(sut.canMoveForward(), false)
+                XCTAssertEqual(sut.selectedIndex, 1)
+                XCTAssertEqual(sut.canMoveBackward(), true)
+                XCTAssertEqual(sut.selectedIndex, 0)
+                XCTAssertEqual(sut.canMoveBackward(), false)
+                XCTAssertEqual(sut.selectedIndex, 0)
                 expectation.fulfill()
-            default:
-              XCTFail()
+            } catch {
+                XCTFail("Error: \(error.localizedDescription)")
             }
         }
-        sut.selectedIndex = 0
-        XCTAssertEqual(sut.canMoveForward(), true)
-        XCTAssertEqual(sut.selectedIndex, 1)
-        XCTAssertEqual(sut.canMoveForward(), false)
-        XCTAssertEqual(sut.selectedIndex, 1)
-        XCTAssertEqual(sut.canMoveBackward(), true)
-        XCTAssertEqual(sut.selectedIndex, 0)
-        XCTAssertEqual(sut.canMoveBackward(), false)
-        XCTAssertEqual(sut.selectedIndex, 0)
         wait(for: [expectation], timeout: 10)
     }
 }

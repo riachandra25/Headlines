@@ -16,7 +16,7 @@ class FavoritesTableViewCell: UITableViewCell {
     
     var article: Article? {
         didSet {
-            configureCell() 
+            configureCell()
         }
     }
     override func awakeFromNib() {

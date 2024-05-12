@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol StorageHandlerProtocol {
-  
+    
     /// return total number of favorite articles
     var favoriteCount: Int { get }
     
@@ -37,11 +37,13 @@ protocol StorageHandlerProtocol {
 final class DataStore: StorageHandlerProtocol {
     
     public static let shared = DataStore()
-   
+    
     private let realm: Realm
     
     var favoriteCount: Int {
-        return allArticles()?.filter { $0.isFavorite == true }.count ?? 0
+        return allArticles()?.filter {
+            $0.isFavorite == true
+        }.count ?? 0
     }
     
     private init() {
@@ -49,7 +51,11 @@ final class DataStore: StorageHandlerProtocol {
     }
     
     func favoriteArticles() -> [Article]? {
-        let favoriteArticles = realm.objects(Article.self).filter { $0.isFavorite == true }
+        let favoriteArticles = realm
+            .objects(Article.self)
+            .filter {
+                $0.isFavorite == true
+            }
         return Array(favoriteArticles)
     }
     
@@ -58,33 +64,16 @@ final class DataStore: StorageHandlerProtocol {
         return Array(all)
     }
     
-    func updateFavoriteArticles(with articles: [Article]) -> [Article]? {
-           guard let articleList = self.allArticles(),
-                 !articleList.isEmpty else {
-               return nil
-           }
-           let favoriteArticles = articleList.filter { $0.isFavorite == true }
-           if favoriteArticles.isEmpty {
-               return nil
-           }
-           let updatedList = articles.map {
-               let article = $0
-               if favoriteArticles.filter({ $0.webTitle == article.webTitle }).count > 0 {
-                   article.isFavorite = true
-            }
-            return article
-        }
-                                                
-        return updatedList
-    }
-    
+    @MainActor
     func saveAllArticles(articles: [Article]) {
-        try? realm.write {
-            let updatedList = self.updateFavoriteArticles(with: articles)
-            if let articleList = self.allArticles() {
-                realm.delete(articleList)
+        Task {
+            try? realm.write {
+                let updatedList = updateFavoriteArticles(with: articles)
+                if let articleList = allArticles() {
+                    realm.delete(articleList)
+                }
+                realm.add(updatedList ?? articles)
             }
-            realm.add(updatedList ?? articles)
         }
     }
     
@@ -93,5 +82,30 @@ final class DataStore: StorageHandlerProtocol {
             let article = allArticles()?[index]
             article?.isFavorite = status
         }
+    }
+}
+
+private extension DataStore {
+    
+    func updateFavoriteArticles(with articles: [Article]) -> [Article]? {
+        guard let articleList = allArticles(),
+              !articleList.isEmpty else {
+            return nil
+        }
+        let favoriteArticles = articleList.filter { $0.isFavorite == true }
+        if favoriteArticles.isEmpty {
+            return nil
+        }
+        let updatedList = articles.map {
+            let article = $0
+            if favoriteArticles.filter(
+                { $0.webTitle == article.webTitle }
+            ).count > 0 {
+                article.isFavorite = true
+            }
+            return article
+        }
+        
+        return updatedList
     }
 }

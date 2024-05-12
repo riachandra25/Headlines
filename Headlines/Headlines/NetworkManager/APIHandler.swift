@@ -17,11 +17,16 @@ protocol APIHandlerProtocol {
      
      - parameters:
      
+     - type: response model type
      - url: URL  to download articles through API
      - method:  method to pass when making network call
-     - completion: completion handler on success/failed API call
-     */
-    func fetchJSONData<T: Decodable>(with url: URL, method: HTTPMethod, completion: @escaping (_ result: RequestResult<T>) -> ())
+     
+     - Returns:
+     
+     - success - Returns a success response as a result of network API call
+     - failure - Returns an error response as a result of network API call     */
+    
+    func fetchJSONData<T: Decodable>(with type: T.Type, url: URL, method: HTTPMethod) async throws -> T
 }
 
 // MARK: - APIHandlerProtocol Implementation -
@@ -35,20 +40,23 @@ struct APIHandler: APIHandlerProtocol {
         self.session = Session(configuration: config)
     }
     
-    func fetchJSONData<T: Decodable>(with url: URL, method: HTTPMethod, completion: @escaping (_ result: RequestResult<T>) -> ()){
-        
+    
+    func fetchJSONData<T: Decodable>(with type: T.Type, url: URL, method: HTTPMethod) async throws -> T {
         guard let componentURL = prepareComponentURL(url: url)?.url else {
-            completion(.failure(error: .configurationError(details: NSLocalizedString("Configuration Error - Bad URL", comment: ""))))
-            return
+            throw(HeadlinesError.configurationError(details: NSLocalizedString("Configuration Error - Bad URL", comment: "")))
         }
-     
-        // Network request with generic response decodable
-        AF.request(componentURL, method: method).responseDecodable(of: T.self, decoder: JSONDecoder()) { response in
-            switch response.result {
-            case .success(let value):
-                completion(.success(item: value))
-            case .failure(_):
-                completion(.failure(error: .serverError(details: NSLocalizedString("The server is not available, please try again later", comment: ""))))
+        return try await withCheckedThrowingContinuation { continuation in
+            AF.request(
+                componentURL,
+                method: method
+            ).responseDecodable(of: type.self) { response in
+                switch response.result {
+                case let .success(data):
+                    continuation.resume(returning: data)
+                case .failure(_):
+                    // Here ideally based on different error type, error scenario should be handled. For this sample app, a generic message is passed here
+                    continuation.resume(throwing: HeadlinesError.configurationError(details: NSLocalizedString("Network Error, please try again after sometime", comment: "")))
+                }
             }
         }
     }
@@ -60,7 +68,7 @@ private extension APIHandler {
         return ["q": "fintech",
                 "show-fields": "main,body",
                 "api-key": Config.APIKey
-                ]
+        ]
     }
     
     func queryItems(dictionary: [String:String]) -> [URLQueryItem] {
@@ -73,6 +81,5 @@ private extension APIHandler {
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         components?.queryItems = queryItems(dictionary: buildQueryItems())
         return components
-        
     }
 }

@@ -15,12 +15,12 @@ protocol ArticlePageViewModelProtocol {
     /**
      Get the list of articles from server
      
-     - parameters:
+     - returns:
      
      - completionHandler - Returns a success or failure response as a result of network API call
      */
-    func getArticlesList(with completionHandler: @escaping (RequestResult<[Article]>)  -> ())
-    
+    func getArticles() async throws -> [Article]
+
 }
 
 
@@ -41,24 +41,13 @@ final class ArticlePageViewModel {
 
 extension ArticlePageViewModel: ArticlePageViewModelProtocol {
   
-    func getArticlesList(with completionHandler: @escaping (RequestResult<[Article]>)  -> ()) {
-        guard !isFetchInProgress else {
-          return
+    func getArticles() async throws -> [Article] {
+        
+        guard let articles = try await articleManager.fetchArticles() else {
+            throw(HeadlinesError.networkError(details: NSLocalizedString("Server Error", comment: "")))
         }
-        isFetchInProgress  = true
-        articleManager.fetchArticles { [weak self] result in
-            guard let self else {
-              return
-            }
-            self.isFetchInProgress = false
-            switch result {
-            case .success(item: let articles):
-                self.articles = articles
-                completionHandler(.success(item: articles))
-            case .failure(error: let error):
-                completionHandler(.failure(error: error))
-            }
-        }
+        self.articles = articles
+        return articles
     }
     
     // Check if the page can be swipped backward

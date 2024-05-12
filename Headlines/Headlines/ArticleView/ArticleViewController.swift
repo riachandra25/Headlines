@@ -16,6 +16,7 @@ final class ArticleViewController: UIViewController {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var addToFavoriteButton: AnimatedButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    var favoriteButtonTapped: (() -> Void)?
     
     private var isButtonSelected: Bool = false
     let viewModel = ArticleViewModel()
@@ -26,10 +27,7 @@ final class ArticleViewController: UIViewController {
     }
     
     @IBAction func favouritesButtonPressed() {
-        let favouritesViewController =  FavouritesViewController()
-        let navigationController = UINavigationController(rootViewController: favouritesViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true)
+        favoriteButtonTapped?()
     }
     
     @IBAction func addToFavoriteButtonClicked() {
@@ -48,34 +46,32 @@ private extension ArticleViewController {
             bodyLabel.text = article.fields?.body?.strippingTags
             imageView.sd_setImage(with: article.fields?.main?.url?.absoluteURL, placeholderImage: UIImage(named: "placeholder.png"))
             isButtonSelected = article.isFavorite
-            setFavoriteButtonState()
+            setInitialState()
         }
     }
     
     // set favorite button image with animation
     func setFavoriteButtonState() {
+        if let image = getFavoriteImage() {
+            addToFavoriteButton.flipLikedState(buttonImage: image)
+        }
+    }
+    
+    // set initial favorite button state
+    func setInitialState() {
+        if let image = getFavoriteImage() {
+            addToFavoriteButton.setLinkedState(buttonImage: image)
+        }
+    }
+    
+    // set favorite button image initial state without animation
+    func getFavoriteImage() -> UIImage? {
         guard let unselected = UIImage(named: "favourite-off"),
               let selected = UIImage(named: "favourite-on") else {
-            return
+            return nil
         }
-        let image = isButtonSelected ? selected : unselected
-        addToFavoriteButton.flipLikedState(buttonImage: image)
+        return isButtonSelected ? selected : unselected
+        
     }
 }
 
-// MARK: - UIScrollViewDelegate
-extension ArticleViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let parent = self.parent as? ArticlePageViewController,
-            parent.dataSource != nil {
-            parent.dataSource = nil
-        }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if let parent = self.parent as? ArticlePageViewController{
-            parent.dataSource = parent
-        }
-    }
-}

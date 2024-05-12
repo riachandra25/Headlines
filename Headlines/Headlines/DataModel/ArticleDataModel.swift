@@ -11,24 +11,24 @@ import RealmSwift
 import Realm
 
 // Data model to store article info fetched through API call
-struct ResultResponse: Decodable {
+public class ResultResponse: Decodable {
     let response: Result
 }
 
-struct Result: Decodable {
+public class Result: Decodable {
     let results: [Article]?
 }
 
-@objcMembers class Article: Object, Decodable {
-    dynamic var webTitle: String?
-    dynamic var webPublicationDate: String?
-    dynamic var fields: Body?
-    dynamic var isFavorite: Bool = false
+public class Article: Object, Decodable {
+    @Persisted var webTitle: String?
+    @Persisted var webPublicationDate: String?
+    @Persisted var  fields: Body?
+    @Persisted var isFavorite: Bool = false
     
     enum CodingKeys: String, CodingKey {
-      case webTitle,
-           webPublicationDate,
-           fields
+        case webTitle,
+             webPublicationDate,
+             fields
     }
     
     convenience init(webTitle: String? =  nil,
@@ -45,12 +45,12 @@ struct Result: Decodable {
 }
 
 
-@objcMembers class Body: Object, Decodable {
-    dynamic var body: String?
-    dynamic var main: String?
-
-    convenience init(body: String? = nil,
-         main: String? = nil
+public class Body: Object, Decodable {
+    @Persisted var body: String?
+    @Persisted var main: String?
+    
+    convenience init(body: String? ,
+                     main: String?
     ) {
         self.init()
         self.body = body

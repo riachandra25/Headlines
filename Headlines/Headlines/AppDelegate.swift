@@ -8,7 +8,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    
+    var mainCoordinator: MainCoordinator?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         #if DEBUG
@@ -19,12 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         #endif
         
+        let navigationController = UINavigationController()
+        mainCoordinator = MainCoordinator(navigationController: navigationController)
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        window.rootViewController = ArticlePageViewController()
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
-        
+        mainCoordinator?.start()
         return true
     }
     

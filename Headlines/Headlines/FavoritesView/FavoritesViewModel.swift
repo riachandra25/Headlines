@@ -14,9 +14,9 @@ protocol FavoritesViewModelProtocol {
     var totalFavoriteCount: Int { get }
     
     /**
-     get the specific article from favorite article list
+     get the specific article from favourite article list
      
-     - parameters:
+     - Returns:
      
      - index: the index of the array to get the article  details
      */
@@ -42,7 +42,7 @@ protocol FavoritesViewModelProtocol {
 }
 
 final class FavoritesViewModel {
-   
+    
     var totalFavoriteCount: Int {
         if !favoriteSearchText.isEmpty {
             return filteredList.count

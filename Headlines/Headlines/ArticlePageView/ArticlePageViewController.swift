@@ -8,18 +8,30 @@
 
 import UIKit
 
-final class ArticlePageViewController: UIPageViewController {
+final class ArticlePageViewController: UIViewController {
     
-    var loadingActivityView: UIActivityIndicatorView?
-    let viewModel = ArticlePageViewModel()
+    var viewModel: ArticlePageViewModel
+    var coordinator: MainCoordinator?
+
+    private var pageController: UIPageViewController?
+    
+    init(viewModel: ArticlePageViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        loadingActivityView = UIActivityIndicatorView(style: .gray)
-        startActivityView()
-        view.backgroundColor = .white
-        self.dataSource = self
-        getArticles()
+        title = NSLocalizedString("Today's Headlines", comment: "")
+        setupPageController()
+        displayActivityIndicator(shouldDisplay: true)
+        view.backgroundColor = .systemBackground
+        getArticlesList()
     }
 }
 
@@ -29,14 +41,16 @@ extension ArticlePageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         if viewModel.canMoveBackward() {
-            return (pageViewController as? ArticlePageViewController)?.viewController()
+            return currentViewController()
         }
         return nil
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, 
+                            viewControllerAfter viewController: UIViewController
+    ) -> UIViewController? {
         if viewModel.canMoveForward() {
-            return (pageViewController as? ArticlePageViewController)?.viewController()
+            return currentViewController()
         }
         return nil
     }
@@ -45,24 +59,25 @@ extension ArticlePageViewController: UIPageViewControllerDataSource {
 extension ArticlePageViewController: AlertControl {
     
     //get articles through API call
-    func getArticles() {
-        viewModel.getArticlesList { response in
-            DispatchQueue.main.async { [weak self] in
-                guard let self else {
-                    return
-                }
-                self.stopActivityView()
-                switch response {
-                case .success(item: ):
+    func getArticlesList()  {
+        Task {
+            do {
+                let _ = try await viewModel.getArticles()
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else {
+                        return
+                    }
+                    self.displayActivityIndicator(shouldDisplay: false)
                     self.reload()
-                case .failure(error: let error):
-                    // Ideally this should be a toastview
-                    // Separate error view with retry button should be displayed
-                    let action = UIAlertAction(title: "OK", style: .default)
-                    self.displayAlert(with: "Alert" ,
-                                       message: error.errorDescription ?? "" ,
-                                       actions: [action]
-                    )
+                }
+            } catch(let error as HeadlinesError) {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else {
+                        return
+                    }
+                    self.displayActivityIndicator(shouldDisplay: false)
+                    // Ideally, it should show the UI handling the error state with retry or try later message
+                    self.displayErrorMessage(with: error)
                 }
             }
         }
@@ -70,32 +85,37 @@ extension ArticlePageViewController: AlertControl {
 }
 
 private extension ArticlePageViewController {
-    
+    private func setupPageController() {
+        pageController = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal, options: nil)
+        pageController?.dataSource = self
+        pageController?.view.backgroundColor = .clear
+        pageController?.view.frame = CGRect(x: 0,y: 0,width: self.view.frame.width,height: self.view.frame.height)
+        addChild(pageController!)
+        view.addSubview(pageController!.view)
+        pageController?.didMove(toParent: self)
+    }
     func reload() {
-        let articleViewController = viewController()
-        setViewControllers([articleViewController], direction: .forward, animated: true)
+        let articleViewController = currentViewController()
+        pageController?.setViewControllers([articleViewController], direction: .forward, animated: true)
     }
     
-    func viewController() -> ArticleViewController {
+    func currentViewController() -> ArticleViewController {
         let articleViewController = ArticleViewController()
+        articleViewController.favoriteButtonTapped = { [weak self] in
+                self?.coordinator?.showFavorites()
+            }
+               
         articleViewController.viewModel.selectedIndex = viewModel.selectedIndex
         return articleViewController
     }
     
-    func startActivityView() {
-        guard let loadingView = loadingActivityView else {
-            return
-        }
-        loadingView.startAnimating()
-        loadingView.center = self.view.center
-        view.addSubview(loadingView)
+  
+    func displayErrorMessage(with error: HeadlinesError) {
+        displayActivityIndicator(shouldDisplay: false)
+        displayAlert(with: NSLocalizedString("Error", comment: "") ,
+                     message: error.localizedDescription,
+                     actions: nil
+        )
     }
-    
-    func stopActivityView() {
-        guard let loadingView = loadingActivityView else {
-            return
-        }
-        loadingView.stopAnimating()
-        loadingView.removeFromSuperview()
-    }
+
 }

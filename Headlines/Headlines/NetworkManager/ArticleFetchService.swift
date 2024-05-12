@@ -12,12 +12,12 @@ protocol ArticleFetchServiceProtocol {
     /**
      Get the list of articles from server
      
-     - parameters:
+     - Returns:
      
      - success - Returns a success response as a result of network API call
      - failure - Returns an error response as a result of network API call
      */
-    func getArticles(success: @escaping (_ articles: [Article]) -> (), failure: @escaping (_ error: HeadlinesError) -> ())
+    func getArticles() async throws -> [Article]
 }
 
 struct ArticleFetchService: ArticleFetchServiceProtocol {
@@ -32,26 +32,24 @@ struct ArticleFetchService: ArticleFetchServiceProtocol {
         self.apiHandler = apiHandler
         self.dataStore = storageHandler
     }
-
-    func getArticles(success: @escaping (_ articles: [Article]) -> (), failure: @escaping (_ error: HeadlinesError) -> ()) {
+    
+    func getArticles() async throws -> [Article] {
         guard let endpoint = Config.baseURLStr.prepareURL(with: APIEndpoint.search)
         else {
-            failure(.configurationError(details: NSLocalizedString("Configuration Error - Bad URL", comment: "")))
-            return
+            throw(HeadlinesError.configurationError(details: NSLocalizedString("Configuration Error - Bad URL", comment: "")))
         }
         
-        apiHandler.fetchJSONData(with: endpoint, method: .get)  { (result: RequestResult<ResultResponse>) in
-            switch result {
-            case .success(item: let data):
-                guard let articles = data.response.results else {
-                    return failure(.configurationError(details: NSLocalizedString("There is no article to display", comment: "")))
-                }
-                //Save data in database storage
-                dataStore.saveAllArticles(articles: articles)
-                success(articles)
-            case .failure(let error):
-                failure(error)
+        do {
+            let result = try await apiHandler.fetchJSONData(with: ResultResponse.self, url : endpoint, method: .get)
+            guard let results = result.response.results else {
+                throw(HeadlinesError.serverError(details: NSLocalizedString("Server Error", comment: "")))
             }
+            dataStore.saveAllArticles(articles: results)
+            return results
+            
+        } catch(let error as HeadlinesError) {
+            throw error
         }
+        
     }
 }

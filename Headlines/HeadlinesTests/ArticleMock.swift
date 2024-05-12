@@ -8,6 +8,8 @@
 
 import XCTest
 @testable import Headlines
+import RealmSwift
+import Realm
 
 struct ArticleMock {
     

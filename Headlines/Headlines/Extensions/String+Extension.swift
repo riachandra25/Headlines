@@ -10,14 +10,14 @@ import Foundation
 
 extension String {
     
-  //convert string to url with endpoint
-  func prepareURL(with endPoint: APIEndpoint) -> URL? {
-    guard let endpointUrl = URL(string: self)
-       else {
-         return nil
-     }
-    return endpointUrl.appendingPathComponent(endPoint.rawValue)
-  }
+    //convert string to url with endpoint
+    func prepareURL(with endPoint: APIEndpoint) -> URL? {
+        guard let endpointUrl = URL(string: self)
+        else {
+            return nil
+        }
+        return endpointUrl.appendingPathComponent(endPoint.rawValue)
+    }
     
     // Strip tags from string
     var strippingTags: String {

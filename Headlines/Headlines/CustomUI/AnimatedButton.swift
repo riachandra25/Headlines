@@ -9,18 +9,25 @@
 import UIKit
 
 class AnimatedButton: UIButton {
+    
     private var isLiked = false
-    
-    var image: UIImage?
-    
+    private var image: UIImage?
     private let unlikedScale: CGFloat = 0.7
     private let likedScale: CGFloat = 1.8
     
+    // change button image with animation on button tap
     public func flipLikedState(buttonImage: UIImage) {
         image = buttonImage
         isLiked = !isLiked
         animate()
     }
+    // Set initial state without animation
+    public func setLinkedState(buttonImage: UIImage) {
+        image = buttonImage
+        isLiked = !isLiked
+        setImage(image, for: .normal)
+    }
+    
     // add simple animation for favorite button
     private func animate() {
         setImage(image, for: .normal)
