@@ -31,4 +31,11 @@ Presently implemented functionality -
 ## Approximately how long I spent on this project.
 
 
-1. Overall approx 4 hours, but not at a stretch 
+1. Overall approx 4 hours, but not at a stretch
+
+
+
+https://github.com/riachandra25/Headlines/assets/37836843/3c693a67-0521-4d29-a4bb-7823ef0d1c63
+
+
+
