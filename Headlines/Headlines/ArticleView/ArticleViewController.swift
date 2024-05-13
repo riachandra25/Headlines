@@ -71,7 +71,6 @@ private extension ArticleViewController {
             return nil
         }
         return isButtonSelected ? selected : unselected
-        
     }
 }
 

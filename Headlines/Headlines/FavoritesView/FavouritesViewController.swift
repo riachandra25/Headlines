@@ -11,7 +11,7 @@ import UIKit
 final class FavouritesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    let viewModel: FavoritesViewModel
+    private let viewModel: FavoritesViewModel
     
     init(viewModel: FavoritesViewModel) {
         self.viewModel = viewModel

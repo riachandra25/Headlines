@@ -21,6 +21,7 @@ protocol ArticleViewModelProtocol {
 }
 
 final class ArticleViewModel {
+    
     var selectedIndex: Int = 0
     var totalCount: Int {
         return articles?.count ?? 0

@@ -25,13 +25,14 @@ protocol ArticlePageViewModelProtocol {
 
 
 final class ArticlePageViewModel {
+    
     var selectedIndex: Int = 0
     var totalCount: Int {
         return articles.count
     }
-    private var isFetchInProgress: Bool = false // check if article fetching is in progress
     private let articleManager: ArticleManagerProtocol
     private var articles: [Article] = [] // populate the list of articles fetched through API call
+    
     init(
         articleManager: ArticleManagerProtocol = ArticleManager()
     ) {

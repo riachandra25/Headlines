@@ -85,13 +85,16 @@ extension ArticlePageViewController: AlertControl {
 }
 
 private extension ArticlePageViewController {
-    private func setupPageController() {
+    func setupPageController() {
         pageController = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal, options: nil)
         pageController?.dataSource = self
         pageController?.view.backgroundColor = .clear
         pageController?.view.frame = CGRect(x: 0,y: 0,width: self.view.frame.width,height: self.view.frame.height)
-        addChild(pageController!)
-        view.addSubview(pageController!.view)
+        if let pageViewController = pageController {
+            addChild(pageViewController)
+            view.addSubview(pageViewController.view)
+        }
+       
         pageController?.didMove(toParent: self)
     }
     func reload() {

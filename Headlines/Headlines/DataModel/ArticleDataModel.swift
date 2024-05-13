@@ -11,11 +11,11 @@ import RealmSwift
 import Realm
 
 // Data model to store article info fetched through API call
-public class ResultResponse: Decodable {
+struct ResultResponse: Decodable {
     let response: Result
 }
 
-public class Result: Decodable {
+struct Result: Decodable {
     let results: [Article]?
 }
 
