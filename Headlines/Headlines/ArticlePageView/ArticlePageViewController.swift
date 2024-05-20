@@ -10,8 +10,8 @@ import UIKit
 
 final class ArticlePageViewController: UIViewController {
     
-    var viewModel: ArticlePageViewModel
-    var coordinator: MainCoordinator?
+    private var viewModel: ArticlePageViewModel
+    weak var coordinator: MainCoordinator?
 
     private var pageController: UIPageViewController?
     
