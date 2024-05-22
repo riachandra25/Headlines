@@ -20,14 +20,11 @@ public enum HeadlinesError: Error {
 extension HeadlinesError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .configurationError(let configError):
-            return configError
-        case .networkError(let networkError):
-            return networkError
-        case .parsingFailed(let parseError):
-            return parseError
-        case .serverError(let serverError):
-            return serverError
+        case .parsingFailed(let detail),
+             .networkError(let detail),
+             .configurationError(let detail),
+             .serverError(let detail):
+            return detail
         }
     }
 }
