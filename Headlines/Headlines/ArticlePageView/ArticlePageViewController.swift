@@ -12,7 +12,7 @@ final class ArticlePageViewController: UIViewController {
     
     private var viewModel: ArticlePageViewModel
     weak var coordinator: MainCoordinator?
-
+    
     private var pageController: UIPageViewController?
     
     init(viewModel: ArticlePageViewModel) {
@@ -46,7 +46,7 @@ extension ArticlePageViewController: UIPageViewControllerDataSource {
         return nil
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, 
+    func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController
     ) -> UIViewController? {
         if viewModel.canMoveForward() {
@@ -71,14 +71,7 @@ extension ArticlePageViewController: AlertControl {
                     self.reload()
                 }
             } catch(let error as HeadlinesError) {
-                DispatchQueue.main.async { [weak self] in
-                    guard let self else {
-                        return
-                    }
-                    self.displayActivityIndicator(shouldDisplay: false)
-                    // Ideally, it should show the UI handling the error state with retry or try later message
-                    self.displayErrorMessage(with: error)
-                }
+                handleError(error)
             }
         }
     }
@@ -94,7 +87,7 @@ private extension ArticlePageViewController {
             addChild(pageViewController)
             view.addSubview(pageViewController.view)
         }
-       
+        
         pageController?.didMove(toParent: self)
     }
     func reload() {
@@ -105,20 +98,28 @@ private extension ArticlePageViewController {
     func currentViewController() -> ArticleViewController {
         let articleViewController = ArticleViewController()
         articleViewController.favoriteButtonTapped = { [weak self] in
-                self?.coordinator?.showFavorites()
-            }
-               
+            self?.coordinator?.showFavorites()
+        }
+        
         articleViewController.viewModel.selectedIndex = viewModel.selectedIndex
         return articleViewController
     }
     
-  
+    
     func displayErrorMessage(with error: HeadlinesError) {
         displayActivityIndicator(shouldDisplay: false)
-        displayAlert(with: NSLocalizedString("Error", comment: "") ,
+        displayAlert(with: NSLocalizedString("Error", comment: ""),
                      message: error.localizedDescription,
                      actions: nil
         )
     }
-
+    
+    func handleError(_ error: HeadlinesError) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.displayActivityIndicator(shouldDisplay: false)
+            self.displayErrorMessage(with: error)
+        }
+    }
+    
 }

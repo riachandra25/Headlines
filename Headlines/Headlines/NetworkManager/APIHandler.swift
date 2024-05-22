@@ -31,31 +31,36 @@ protocol APIHandlerProtocol {
 
 // MARK: - APIHandlerProtocol Implementation -
 struct APIHandler: APIHandlerProtocol {
-    
-    // session to establish API calls
-    private var session : Session
-    
-    init() {
-        let config = URLSessionConfiguration.default
-        self.session = Session(configuration: config)
+    public static let shared = APIHandler()
+
+    private init() {
     }
-    
-    
     func fetchJSONData<T: Decodable>(with type: T.Type, url: URL, method: HTTPMethod) async throws -> T {
         guard let componentURL = prepareComponentURL(url: url)?.url else {
-            throw(HeadlinesError.configurationError(details: NSLocalizedString("Configuration Error - Bad URL", comment: "")))
+            throw HeadlinesError.configurationError(details: NSLocalizedString("Configuration Error - Bad URL", comment: ""))
         }
+        
         return try await withCheckedThrowingContinuation { continuation in
-            AF.request(
-                componentURL,
-                method: method
-            ).responseDecodable(of: type.self) { response in
+            AF.request(componentURL, method: method).responseDecodable(of: type.self) { response in
                 switch response.result {
-                case let .success(data):
+                case .success(let data):
                     continuation.resume(returning: data)
-                case .failure(_):
-                    // Here ideally based on different error type, error scenario should be handled. For this sample app, a generic message is passed here
-                    continuation.resume(throwing: HeadlinesError.configurationError(details: NSLocalizedString("Network Error, please try again after sometime", comment: "")))
+                case .failure(let error):
+                    // Detailed error handling for various scenarios
+                    let errorMessage: String
+                    if let afError = error.asAFError {
+                        switch afError {
+                        case .invalidURL(let url):
+                            errorMessage = NSLocalizedString("Invalid URL: \(url)", comment: "")
+                        case .responseValidationFailed(let reason):
+                            errorMessage = NSLocalizedString("Response validation failed: \(reason)", comment: "")
+                        default:
+                            errorMessage = NSLocalizedString("Network Error, please try again later", comment: "")
+                        }
+                    } else {
+                        errorMessage = NSLocalizedString("Unknown error occurred", comment: "")
+                    }
+                    continuation.resume(throwing: HeadlinesError.networkError(details: errorMessage))
                 }
             }
         }

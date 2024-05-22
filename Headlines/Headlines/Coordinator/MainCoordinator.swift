@@ -23,7 +23,7 @@ class MainCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    // Load Article screen
+    /// Starts the coordinator by loading the Article screen.
     func start() {
         let viewModel = ArticlePageViewModel()
         let viewController = ArticlePageViewController(viewModel: viewModel)
@@ -31,12 +31,12 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: false)
     }
     
-    // Show Favorite List screen
+    /// Shows the Favorite List screen.
     func showFavorites() {
         let favoriteViewModel = FavoritesViewModel()
         let favoritesViewController = FavouritesViewController(viewModel: favoriteViewModel)
         
-        // This has been added for the specific UI requirement
+        // Create a navigation controller for the favorites view controller
         let navController = UINavigationController(rootViewController: favoritesViewController)
         navController.modalPresentationStyle = .fullScreen
         navigationController.topViewController?.present(navController, animated: true)

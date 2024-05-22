@@ -9,12 +9,10 @@
 import Foundation
 protocol ArticleManagerProtocol {
     /**
-     Get the list of articles from server
+     Retrieves a list of articles from the server.
      
-     - Returns:
-     
-     - success - Returns a success response as a result of network API call
-     - failure - Returns an error response as a result of network API call
+     - Returns: An array of `Article` objects.
+     - Throws: An error if the network call fails or the data cannot be fetched.
      */
     func fetchArticles() async throws -> [Article]?
 }

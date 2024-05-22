@@ -47,7 +47,11 @@ final class DataStore: StorageHandlerProtocol {
     }
     
     private init() {
-        realm = try! Realm()
+        do {
+            realm = try Realm()
+        } catch {
+            fatalError("Failed to initialize Realm: \(error.localizedDescription)")
+        }
     }
     
     func favoriteArticles() -> [Article]? {
@@ -67,7 +71,7 @@ final class DataStore: StorageHandlerProtocol {
     @MainActor
     func saveAllArticles(articles: [Article]) {
         Task {
-            try? realm.write {
+            try realm.write {
                 let updatedList = updateFavoriteArticles(with: articles)
                 if let articleList = allArticles() {
                     realm.delete(articleList)
@@ -78,9 +82,9 @@ final class DataStore: StorageHandlerProtocol {
     }
     
     func updateFavoriteStatus(for index: Int, status: Bool) {
+        guard let article = allArticles()?[index] else { return }
         try? realm.write {
-            let article = allArticles()?[index]
-            article?.isFavorite = status
+            article.isFavorite = status
         }
     }
 }
