@@ -13,23 +13,20 @@ protocol ArticlePageViewModelProtocol {
     var totalCount: Int { get }
     
     /**
-     Get the list of articles from server
+     Fetches the list of articles from the server.
      
-     - returns:
-     
-     - completionHandler - Returns a success or failure response as a result of network API call
+     - Returns: An array of `Article` objects.
+     - Throws: An error if the network call fails or the data cannot be fetched.
      */
     func getArticles() async throws -> [Article]
-
+    
 }
 
 
 final class ArticlePageViewModel {
     
     var selectedIndex: Int = 0
-    var totalCount: Int {
-        return articles.count
-    }
+    
     private let articleManager: ArticleManagerProtocol
     private var articles: [Article] = [] // populate the list of articles fetched through API call
     
@@ -41,7 +38,11 @@ final class ArticlePageViewModel {
 }
 
 extension ArticlePageViewModel: ArticlePageViewModelProtocol {
-  
+    
+    var totalCount: Int {
+        return articles.count
+    }
+    
     func getArticles() async throws -> [Article] {
         
         guard let articles = try await articleManager.fetchArticles() else {

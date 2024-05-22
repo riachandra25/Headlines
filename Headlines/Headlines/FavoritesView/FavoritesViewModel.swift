@@ -43,13 +43,6 @@ protocol FavoritesViewModelProtocol {
 
 final class FavoritesViewModel {
     
-    var totalFavoriteCount: Int {
-        if !favoriteSearchText.isEmpty {
-            return filteredList.count
-        }
-        return dataStore.favoriteCount
-    }
-    
     private let dataStore: StorageHandlerProtocol
     private var favoriteSearchText: String = ""
     
@@ -71,11 +64,18 @@ final class FavoritesViewModel {
 
 extension FavoritesViewModel: FavoritesViewModelProtocol {
     
-    func article(at index: Int) -> Article? {
-        if index >= 0 && index < articles?.count ?? 0 {
-            return articles?[index]
+    var totalFavoriteCount: Int {
+        if !favoriteSearchText.isEmpty {
+            return filteredList.count
         }
-        return nil
+        return dataStore.favoriteCount
+    }
+    
+    func article(at index: Int) -> Article? {
+        guard index >= 0 && index < articles?.count ?? 0 else {
+            return nil
+        }
+        return articles?[index]
     }
     
     func filterArticleList(with searchText: String) -> [Article]? {

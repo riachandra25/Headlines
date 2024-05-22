@@ -121,5 +121,4 @@ private extension ArticlePageViewController {
             self.displayErrorMessage(with: error)
         }
     }
-    
 }
